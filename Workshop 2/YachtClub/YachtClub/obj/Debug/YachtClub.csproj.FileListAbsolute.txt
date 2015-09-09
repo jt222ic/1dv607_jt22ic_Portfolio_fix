@@ -1,1 +1,6 @@
 C:\1dv607GiT\1dv607-kk222hk\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe.config
+C:\1dv607GiT\1dv607-kk222hk\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.csprojResolveAssemblyReference.cache
+C:\1dv607GiT\1dv607-kk222hk\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe
+C:\1dv607GiT\1dv607-kk222hk\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.pdb
+C:\1dv607GiT\1dv607-kk222hk\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.exe
+C:\1dv607GiT\1dv607-kk222hk\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.pdb

@@ -53,7 +53,7 @@ namespace YachtClub.model
             }
             private set
             {
-                if (Regex.IsMatch(value, @"^\d{2,4}-?\d{4}-?\d{4}"))
+                if (!Regex.IsMatch(value, @"^\d{2,4}-?\d{4}-?\d{4}"))
                 {
                     throw new ArgumentException("Model.Member.SocialSecurityNubmer is not valid format");
                 }

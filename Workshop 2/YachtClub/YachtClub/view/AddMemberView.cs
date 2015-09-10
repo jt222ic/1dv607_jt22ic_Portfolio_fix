@@ -28,12 +28,14 @@ namespace YachtClub.view
 
         public void PrintAddSuccess(string name)
         {
-            Console.WriteLine("User \"{0}\" successfully added to the registry.", name);
+            Console.WriteLine("User \"{0}\" successfully added to the registry. Press any key to continue.", name);
+            Console.ReadKey();
         }
 
         internal void PrintAddFailure()
         {
-            Console.WriteLine("User registration failed.");
+            Console.WriteLine("User registration failed. Press any key to continue.");
+            Console.ReadKey();
         }
     }
 }

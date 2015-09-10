@@ -50,10 +50,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\AddMemberView.cs" />
-    <Compile Include="view\CompactMemberListView.cs" />
     <Compile Include="view\MemberListView.cs" />
     <Compile Include="view\StartMenuView.cs" />
-    <Compile Include="view\VerboseMemberListView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

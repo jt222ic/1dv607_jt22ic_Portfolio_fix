@@ -8,8 +8,13 @@ namespace YachtClub.controller
 {
     class AddMemberController
     {
-        private model.MemberList m_memberList = new model.MemberList();
         private view.AddMemberView m_addMemberView = new view.AddMemberView();
+        private model.MemberList m_memberList;
+
+        public AddMemberController(model.MemberList memberList)
+        {
+            m_memberList = memberList;
+        }
 
         public void DoAddMember()
         {

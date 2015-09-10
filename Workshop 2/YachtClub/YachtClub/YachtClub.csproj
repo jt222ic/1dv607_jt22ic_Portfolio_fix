@@ -44,15 +44,17 @@
     <Compile Include="model\Boat.cs" />
     <Compile Include="model\BoatCategory.cs" />
     <Compile Include="model\Member.cs" />
+    <Compile Include="model\MemberList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\CompactMemberView.cs" />
+    <Compile Include="view\VerboseMemberView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="controller\" />
-    <Folder Include="view\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

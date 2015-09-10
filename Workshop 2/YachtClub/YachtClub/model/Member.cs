@@ -11,6 +11,7 @@ namespace YachtClub.model
     {
         private string _socialSecurityNumber;
         private int _memberId;
+        private List<Boat> m_registeredBoats = new List<Boat>();
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -50,6 +51,18 @@ namespace YachtClub.model
             FirstName = firstName;
             LastName = lastName;
             SocialSecurityNumber = socialSecurityNumber;
+        }
+
+        public void RegisterBoats(Boat boat)
+        {
+            if (m_registeredBoats.Contains(boat)) 
+            {
+                throw new ArgumentException("Boat is already registered");
+            }
+            else
+            {
+                m_registeredBoats.Add(boat);
+            }
         }
     }
 }

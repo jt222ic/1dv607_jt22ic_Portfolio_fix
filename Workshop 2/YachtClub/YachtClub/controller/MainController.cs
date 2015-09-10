@@ -22,12 +22,12 @@ namespace YachtClub.controller
             m_addMemberView = new view.AddMemberView();
             m_memberListView = new view.MemberListView(m_memberList);
             m_addMemberController = new controller.AddMemberController(m_memberList);
-            m_handleMembercontroller = new controller.HandleMemberController(m_memberList);
+            m_handleMembercontroller = new controller.HandleMemberController();
         }
 
         public void DoRun()
         {
-            Console.Clear();
+            m_startMenu.ClearMenu();
             m_startMenu.ShowStartMenu();
             view.StartMenuView.Choices option = m_startMenu.GetStartMenuOption();
             switch (option)

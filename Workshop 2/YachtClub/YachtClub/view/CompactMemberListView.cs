@@ -12,7 +12,7 @@ namespace YachtClub.view
         {
             foreach (model.Member member in m_memberList.Members)
             {
-                Console.WriteLine("Name: {0}", member.FirstName + " " + member.LastName);
+                Console.WriteLine("Name: {0}", member.Name);
                 Console.WriteLine("Member ID: {0}", member.MemberId);
                 Console.WriteLine("Number of boats: {0}", member.GetAmountOfBoats());
             }

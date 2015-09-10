@@ -11,39 +11,23 @@ namespace YachtClub.model
     {
         private string _socialSecurityNumber;
         private int _memberId;
-        private string _firstName;
-        private string _lastName;
+        private string _name;
         private List<Boat> m_registeredBoats = new List<Boat>();
 
-        public string FirstName
+        public string Name
         {
             get
             {
-                return _firstName;
+                return _name;
             }
             set
             {
                 if (value.Length <= 0)
                 {
-                    throw new ArgumentException("Model.Member.FirstName needs to be 1 character or longer");
+                    throw new ArgumentException("Model.Member.Name needs to be 1 character or longer");
                 }
-                _firstName = value;
+                _name = value;
 
-            }
-        }
-        public string LastName
-        {
-            get
-            {
-                return _lastName;
-            }
-            set
-            {
-                if (value.Length <= 0)
-                {
-                    throw new ArgumentException("Model.Member.LastName needs to be 1 character or longer");
-                }
-                _lastName = value;
             }
         }
         public int MemberId
@@ -85,11 +69,11 @@ namespace YachtClub.model
             }
         }
 
-        public Member(string firstName, string lastName, string socialSecurityNumber)
+        public Member(string name, string socialSecurityNumber, int memberId)
         {
-            FirstName = firstName;
-            LastName = lastName;
+            Name = name;
             SocialSecurityNumber = socialSecurityNumber;
+            MemberId = memberId;
         }
 
         public void RegisterBoat(Boat boat)

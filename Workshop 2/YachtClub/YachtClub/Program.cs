@@ -10,6 +10,8 @@ namespace YachtClub
     {
         static void Main(string[] args)
         {
+            controller.MainController mainController = new controller.MainController();
+            mainController.DoRun();
         }
     }
 }

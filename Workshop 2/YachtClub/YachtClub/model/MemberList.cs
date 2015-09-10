@@ -24,10 +24,16 @@ namespace YachtClub.model
             {
                 throw new ArgumentException("Member is already registered");
             }
-            else
+            m_members.Add(member);
+        }
+
+        public void DeleteMember(Member member)
+        {
+            if (!m_members.Contains(member))
             {
-                m_members.Add(member);
+                throw new ArgumentException("That member doesn't exist");
             }
+            m_members.Remove(member);
         }
     }
 }

@@ -11,10 +11,41 @@ namespace YachtClub.model
     {
         private string _socialSecurityNumber;
         private int _memberId;
+        private string _firstName;
+        private string _lastName;
         private List<Boat> m_registeredBoats = new List<Boat>();
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FirstName
+        {
+            get
+            {
+                return _firstName;
+            }
+            set
+            {
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException("Model.Member.FirstName needs to be 1 character or longer");
+                }
+                _firstName = value;
+
+            }
+        }
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                if (value.Length <= 0)
+                {
+                    throw new ArgumentException("Model.Member.LastName needs to be 1 character or longer");
+                }
+                _lastName = value;
+            }
+        }
         public int MemberId
         {
             get
@@ -46,6 +77,14 @@ namespace YachtClub.model
             }
         }
 
+        public List<Boat> Boats
+        {
+            get
+            {
+                return m_registeredBoats;
+            }
+        }
+
         public Member(string firstName, string lastName, string socialSecurityNumber)
         {
             FirstName = firstName;
@@ -53,7 +92,7 @@ namespace YachtClub.model
             SocialSecurityNumber = socialSecurityNumber;
         }
 
-        public void RegisterBoats(Boat boat)
+        public void RegisterBoat(Boat boat)
         {
             if (m_registeredBoats.Contains(boat)) 
             {
@@ -63,6 +102,23 @@ namespace YachtClub.model
             {
                 m_registeredBoats.Add(boat);
             }
+        }
+
+        public void DeleteBoat(Boat boat)
+        {
+            if (!m_registeredBoats.Contains(boat))
+            {
+                throw new ArgumentException("That boat doesn't exist");
+            }
+            else
+            {
+                m_registeredBoats.Add(boat);
+            }
+        }
+
+        public int GetAmountOfBoats()
+        {
+            return m_registeredBoats.Count;
         }
     }
 }

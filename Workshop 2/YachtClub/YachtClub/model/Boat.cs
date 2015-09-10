@@ -8,6 +8,23 @@ namespace YachtClub.model
 {
     class Boat
     {
+        private double _length;
+
         public BoatCategory Category { get; set; }
+        public double Length
+        {
+            get
+            {
+                return _length;
+            }
+            set
+            {
+                if (value <= 0 || value >= 1000)
+                {
+                    throw new ArgumentException("Model.Boat.Length needs to be between 0 and 1000");
+                }
+                _length = value;
+            }
+        }
     }
 }

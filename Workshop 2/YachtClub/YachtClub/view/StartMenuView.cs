@@ -13,7 +13,6 @@ namespace YachtClub.view
             ListUsersCompact,
             ListUsersVerbose,
             AddMember,
-            Back,
             ExitApplication
         };
 
@@ -32,8 +31,7 @@ namespace YachtClub.view
             sb.AppendLine("-       2. Show all info       -");
             sb.AppendLine("-          about users         -");
             sb.AppendLine("-       3. Add a new user      -");
-            sb.AppendLine("-           4. Back            -");
-            sb.AppendLine("-           5. Exit            -");
+            sb.AppendLine("-           4. Exit            -");
             sb.AppendLine("--------------------------------");
 
             Console.WriteLine(sb.ToString());
@@ -52,8 +50,6 @@ namespace YachtClub.view
                 case '3':
                     return Choices.AddMember;
                 case '4':
-                    return Choices.Back;
-                case '5':
                     return Choices.ExitApplication;
                 default:
                     return Choices.ExitApplication;

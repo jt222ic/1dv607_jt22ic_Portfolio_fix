@@ -17,26 +17,27 @@ namespace YachtClub.view
 
         public void ShowMembers(bool compressedList)
         {
+            Console.Clear();
             if (compressedList)
             {
-                Console.WriteLine("Name\t\tMemberID\tAmount of boats");
+                Console.WriteLine("MemberID\t\tName\tAmount of boats");
             }
             else
             {
-                Console.WriteLine("Name\t\tMemberID\tPersonal number");
+                Console.WriteLine("MemberID\t\tName\tPersonal number");
             }
             Console.WriteLine("------------------------------------------------");
             foreach (model.Member member in m_memberList.Members)
             {
-                Console.Write("{0}", member.Name);
-                Console.Write("\t\t{0}", member.MemberId);
+                Console.Write("{0}", member.MemberId);
+                Console.Write("\t\t\t{0}", member.Name);
                 if (compressedList)
                 {
                     Console.Write("\t\t{0}", member.GetAmountOfBoats());
                 }
                 else
                 {
-                    Console.Write("\t\t{0}\n", member.SocialSecurityNumber);
+                    Console.Write("\t{0}\n", member.SocialSecurityNumber);
                     Console.WriteLine();
                     ShowBoats(member.Boats);
                 }
@@ -52,6 +53,14 @@ namespace YachtClub.view
                 Console.WriteLine("Type: {0}", boat.Category);
                 Console.WriteLine("Length: {0}", boat.Length);
             }
+        }
+
+        public model.Member GetChosenMember()
+        {
+            Console.Write("Select a user (by ID): ");
+            var id = int.Parse(Console.ReadLine());
+            model.Member selectedMember = m_memberList.GetMemberById(id);
+            return selectedMember;
         }
     }
 }

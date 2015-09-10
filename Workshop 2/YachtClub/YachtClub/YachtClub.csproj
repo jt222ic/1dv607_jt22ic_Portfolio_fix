@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="controller\AddMemberController.cs" />
+    <Compile Include="controller\HandleMemberController.cs" />
     <Compile Include="controller\MainController.cs" />
     <Compile Include="model\Boat.cs" />
     <Compile Include="model\BoatCategory.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\AddMemberView.cs" />
     <Compile Include="view\MemberListView.cs" />
+    <Compile Include="view\MemberView.cs" />
     <Compile Include="view\StartMenuView.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,5 +35,17 @@ namespace YachtClub.model
             }
             m_members.Remove(member);
         }
+
+        public Member GetMemberById(int memberId)
+        {
+            foreach (Member member in m_members)
+            {
+                if (member.MemberId == memberId)
+                {
+                    return member;
+                }
+            }
+            return null;
+        }
     }
 }

@@ -47,5 +47,10 @@ namespace YachtClub.model
             }
             return null;
         }
+
+        public bool IsEmpty()
+        {
+            return !m_members.Any();
+        }
     }
 }

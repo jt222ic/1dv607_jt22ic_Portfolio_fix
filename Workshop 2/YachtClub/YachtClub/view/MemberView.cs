@@ -82,5 +82,24 @@ namespace YachtClub.view
                     return MemberHandleOperation.Back;
             }
         }
+
+        public bool ConfirmDelete()
+        {
+            Console.WriteLine("Are you sure you want to delete this member? Press \"y\" to delete");
+            ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+            return pressedKey.KeyChar == 'y';
+        }
+
+        public void ShowFailedDeleteMessage()
+        {
+            Console.WriteLine("User not deleted");
+            Console.ReadKey();
+        }
+
+        public void ShowSuccessDeleteMessage()
+        {
+            Console.WriteLine("User successfully deleted!");
+            Console.ReadKey();
+        }
     }
 }

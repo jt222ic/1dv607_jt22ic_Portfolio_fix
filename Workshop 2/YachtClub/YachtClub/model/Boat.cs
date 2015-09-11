@@ -26,5 +26,11 @@ namespace YachtClub.model
                 _length = value;
             }
         }
+
+        public Boat(double length, BoatCategory category)
+        {
+            Category = category;
+            Length = length;
+        }
     }
 }

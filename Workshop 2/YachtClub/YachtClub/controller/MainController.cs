@@ -22,7 +22,7 @@ namespace YachtClub.controller
             m_addMemberView = new view.AddMemberView();
             m_memberListView = new view.MemberListView(m_memberList);
             m_addMemberController = new controller.AddMemberController(m_memberList);
-            m_handleMembercontroller = new controller.HandleMemberController();
+            m_handleMembercontroller = new controller.HandleMemberController(m_memberList);
         }
 
         public void DoRun()
@@ -39,6 +39,7 @@ namespace YachtClub.controller
                     break;
                 case view.StartMenuView.Choices.ListUsersVerbose:
                     m_memberListView.ShowMembers(false);
+                    Console.ReadKey();
                     DoRun();
                     break;
                 case view.StartMenuView.Choices.AddMember:

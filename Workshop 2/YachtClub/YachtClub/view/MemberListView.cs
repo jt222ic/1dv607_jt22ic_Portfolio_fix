@@ -27,6 +27,12 @@ namespace YachtClub.view
                 Console.WriteLine("MemberID\t\tName\tPersonal number");
             }
             Console.WriteLine("------------------------------------------------");
+
+            if (m_memberList.IsEmpty())
+            {
+            Console.WriteLine("-            No users are registered           -");
+            }
+
             foreach (model.Member member in m_memberList.Members)
             {
                 Console.Write("{0}", member.MemberId);
@@ -51,7 +57,7 @@ namespace YachtClub.view
             foreach (model.Boat boat in boats)
             {
                 Console.WriteLine("Type: {0}", boat.Category);
-                Console.WriteLine("Length: {0}", boat.Length);
+                Console.WriteLine("Length: {0}\n", boat.Length);
             }
         }
 
@@ -60,7 +66,13 @@ namespace YachtClub.view
             Console.Write("Select a user (by ID): ");
             var id = int.Parse(Console.ReadLine());
             model.Member selectedMember = m_memberList.GetMemberById(id);
-            return selectedMember;
+            return selectedMember;     
+        }
+
+        public void ShowFailedUserPickMessage()
+        {
+            Console.WriteLine("There is no user with that ID. Press any key to continue.");
+            Console.ReadKey(true);
         }
     }
 }

@@ -92,14 +92,19 @@ namespace YachtClub.view
 
         public void ShowFailedDeleteMessage()
         {
-            Console.WriteLine("User not deleted");
+            Console.WriteLine("Member not deleted");
             Console.ReadKey();
         }
 
         public void ShowSuccessDeleteMessage()
         {
-            Console.WriteLine("User successfully deleted!");
+            Console.WriteLine("Member successfully deleted!");
             Console.ReadKey();
+        }
+
+        public void ShowEditConfirmMessage(model.Member memberAdded)
+        {
+            Console.WriteLine("Member {0} has been updated.", memberAdded.Name);
         }
     }
 }

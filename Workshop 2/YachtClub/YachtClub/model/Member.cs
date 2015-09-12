@@ -51,7 +51,7 @@ namespace YachtClub.model
             {
                 return _socialSecurityNumber;
             }
-            private set
+            set
             {
                 if (!Regex.IsMatch(value, @"^\d{2,4}-?\d{4}-?\d{4}"))
                 {

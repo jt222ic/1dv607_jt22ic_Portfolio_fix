@@ -11,6 +11,7 @@ namespace YachtClub.model
         private double _length;
 
         public BoatCategory Category { get; set; }
+        public int BoatId { get; set; }
         public double Length
         {
             get
@@ -27,10 +28,11 @@ namespace YachtClub.model
             }
         }
 
-        public Boat(double length, BoatCategory category)
+        public Boat(double length, BoatCategory category, int id)
         {
             Category = category;
             Length = length;
+            BoatId = id;
         }
     }
 }

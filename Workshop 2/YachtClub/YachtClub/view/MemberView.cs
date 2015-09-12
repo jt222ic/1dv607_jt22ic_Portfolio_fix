@@ -55,12 +55,12 @@ namespace YachtClub.view
 
             foreach (model.Boat boat in m_member.Boats)
             {
+                sb.AppendLine(String.Format("              ID: {0}       ", boat.BoatId));
                 sb.AppendLine(String.Format("             Type: {0}        ", boat.Category));
                 sb.AppendLine(String.Format("            Length: {0}       ", boat.Length));
             }
 
             Console.WriteLine(sb.ToString());
-            Console.ReadKey();
         }
 
         public MemberHandleOperation GetWhatToDoWithUser()
@@ -105,6 +105,24 @@ namespace YachtClub.view
         public void ShowEditConfirmMessage(model.Member memberAdded)
         {
             Console.WriteLine("Member {0} has been updated.", memberAdded.Name);
+        }
+
+        public model.Boat GetBoatToDelete()
+        {
+            Console.Write("ID for boat to delete: ");
+            return m_member.GetBoatByID(int.Parse(Console.ReadLine()));
+        }
+
+        public void ShowDeleteBoatSuccessMessage(int id)
+        {
+            Console.WriteLine("Boat {0} was deleted", id);
+            Console.ReadKey();
+        }
+
+        public void ShowDeleteBoatFailureMessage()
+        {
+            Console.WriteLine("There is no boat with that ID");
+            Console.ReadKey();
         }
     }
 }

@@ -104,5 +104,19 @@ namespace YachtClub.model
         {
             return m_registeredBoats.Count;
         }
+
+        public Boat GetBoatByID(int id)
+        {
+            foreach (Boat boat in Boats)
+            {
+                if (boat.BoatId == id)
+                {
+                    return boat;
+                }
+            }
+
+            // If no boat is found
+            return null;
+        }
     }
 }

@@ -54,10 +54,21 @@ namespace YachtClub.controller
                     m_boatView.ShowRegistrationStart();
                     model.BoatCategory category = m_boatView.GetCategoryInput();
                     double length = m_boatView.GetLengthInput();
-                    member.RegisterBoat(new model.Boat(length, category));
+                    int id = m_boatView.GetIdInput();
+                    member.RegisterBoat(new model.Boat(length, category, id));
                     break;
                 case YachtClub.view.MemberView.MemberHandleOperation.DeleteBoat:
                     m_memberView.ShowMembersBoats();
+                    try
+                    {
+                        model.Boat boatToDelete = m_memberView.GetBoatToDelete();
+                        member.DeleteBoat(boatToDelete);
+                        m_memberView.ShowDeleteBoatSuccessMessage(boatToDelete.BoatId);
+                    }
+                    catch 
+                    {
+                        m_memberView.ShowDeleteBoatFailureMessage();
+                    }
                     break;
                 case YachtClub.view.MemberView.MemberHandleOperation.Back:
                     break;

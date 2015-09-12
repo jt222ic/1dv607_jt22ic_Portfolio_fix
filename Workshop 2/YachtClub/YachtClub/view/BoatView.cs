@@ -41,5 +41,11 @@ namespace YachtClub.view
                 Console.WriteLine("{0}:           {1}", index, category);
             }
         }
+
+        public int GetIdInput()
+        {
+            Console.WriteLine("Id: ");
+            return int.Parse(Console.ReadLine());
+        }
     }
 }

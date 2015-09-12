@@ -96,7 +96,7 @@ namespace YachtClub.model
             }
             else
             {
-                m_registeredBoats.Add(boat);
+                m_registeredBoats.Remove(boat);
             }
         }
 

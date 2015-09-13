@@ -37,6 +37,7 @@ namespace YachtClub.controller
                     break;
                 case view.NavigationView.Choices.ListUsersVerbose:
                     m_memberListView.ShowMembers(false);
+                    m_memberController.DoHandleMember(m_memberListView.GetChosenMember());
                     DoRun();
                     break;
                 case view.NavigationView.Choices.AddMember:

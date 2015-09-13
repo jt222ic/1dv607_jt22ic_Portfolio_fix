@@ -36,7 +36,7 @@ namespace YachtClub.model
             {
                 return _memberId;
             }
-            private set
+            set
             {
                 if (value <= 0)
                 {
@@ -115,7 +115,6 @@ namespace YachtClub.model
                 }
             }
 
-            // If no boat is found
             return null;
         }
     }

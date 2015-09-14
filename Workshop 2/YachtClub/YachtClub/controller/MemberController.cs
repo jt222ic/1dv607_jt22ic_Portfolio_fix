@@ -8,14 +8,20 @@ namespace YachtClub.controller
 {
     class MemberController
     {
-        private view.MemberView m_memberView;
-        private view.BoatView m_boatView = new view.BoatView();
         private model.MemberList m_memberList;
-        private view.BaseInputView m_inputView = new view.BaseInputView();
+        private view.NavigationView m_navigationView;
+        private view.MemberListView m_memberListView;
+        private view.BaseInputView m_inputView;
+        private view.MemberView m_memberView;
+        private view.BoatView m_boatView;
 
-        public MemberController(model.MemberList memberList)
+        public MemberController()
         {
-            m_memberList = memberList;
+            m_memberList = new model.MemberList();
+            m_navigationView = new view.NavigationView();
+            m_inputView = new view.BaseInputView();
+            m_boatView = new view.BoatView(); ;
+            m_memberListView = new view.MemberListView(m_memberList);
         }
 
         public void DoHandleMember(model.Member member)
@@ -97,6 +103,54 @@ namespace YachtClub.controller
             {
                 Console.WriteLine("Hello");
                 m_inputView.PrintAddFailure();
+            }
+        }
+
+        public void DoRun()
+        {
+            m_navigationView.ClearMenu();
+            m_navigationView.ShowStartMenu();
+            view.NavigationView.Choices option = m_navigationView.GetStartMenuOption();
+            switch (option)
+            {
+                case view.NavigationView.Choices.ListUsersCompact:
+                    m_memberListView.ShowMembers(true);
+                    model.Member memberCompact = null;
+                    while (true)
+                    {
+                        int id = m_inputView.GetIntegerFromUser("Select user by ID: ");
+                        memberCompact = m_memberList.GetMemberById(id);
+                        if (memberCompact != null)
+                        {
+                            break;
+                        }
+                        Console.WriteLine("No user with id {0}", id);
+                    }
+                    DoHandleMember(memberCompact);
+                    DoRun();
+                    break;
+                case view.NavigationView.Choices.ListUsersVerbose:
+                    m_memberListView.ShowMembers(false);
+                    model.Member memberVerbose = null;
+                    while (true)
+                    {
+                        int id = m_inputView.GetIntegerFromUser("Select user by ID: ");
+                        memberVerbose = m_memberList.GetMemberById(id);
+                        if (memberVerbose != null)
+                        {
+                            break;
+                        }
+                        Console.WriteLine("No user with id {0}", id);
+                    }
+                    DoHandleMember(memberVerbose);
+                    DoRun();
+                    break;
+                case view.NavigationView.Choices.AddMember:
+                    DoAddMember();
+                    DoRun();
+                    break;
+                case view.NavigationView.Choices.ExitApplication:
+                    return;
             }
         }
     }

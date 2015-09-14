@@ -11,14 +11,14 @@ namespace YachtClub.controller
         private model.MemberList m_memberList;
         private view.NavigationView m_navigationView;
         private view.MemberListView m_memberListView; 
-        private view.AddMemberView m_addMemberView;
+        private view.BaseInputView m_inputView;
         private controller.MemberController m_memberController;
 
         public MainController()
         {
             m_memberList = new model.MemberList();
             m_navigationView = new view.NavigationView();
-            m_addMemberView = new view.AddMemberView();
+            m_inputView = new view.BaseInputView();
             m_memberListView = new view.MemberListView(m_memberList);
             m_memberController = new controller.MemberController(m_memberList);
         }
@@ -32,12 +32,34 @@ namespace YachtClub.controller
             {
                 case view.NavigationView.Choices.ListUsersCompact:
                     m_memberListView.ShowMembers(true);
-                    m_memberController.DoHandleMember(m_memberListView.GetChosenMember());
+                    model.Member memberCompact = null;
+                    while (true)
+                    {
+                        int id = m_inputView.GetIntegerFromUser("Select user by ID: ");
+                        memberCompact = m_memberList.GetMemberById(id);
+                        if (memberCompact != null)
+                        {
+                            break;
+                        }
+                        Console.WriteLine("No user with id {0}", id);
+                    }
+                    m_memberController.DoHandleMember(memberCompact);
                     DoRun();
                     break;
                 case view.NavigationView.Choices.ListUsersVerbose:
                     m_memberListView.ShowMembers(false);
-                    m_memberController.DoHandleMember(m_memberListView.GetChosenMember());
+                    model.Member memberVerbose = null;
+                    while (true)
+                    {
+                        int id = m_inputView.GetIntegerFromUser("Select user by ID: ");
+                        memberVerbose = m_memberList.GetMemberById(id);
+                        if (memberVerbose != null)
+                        {
+                            break;
+                        }
+                        Console.WriteLine("No user with id {0}", id);
+                    }
+                    m_memberController.DoHandleMember(memberVerbose);
                     DoRun();
                     break;
                 case view.NavigationView.Choices.AddMember:

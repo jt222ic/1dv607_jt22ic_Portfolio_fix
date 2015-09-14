@@ -15,21 +15,7 @@ namespace YachtClub.view
             Console.WriteLine("--------------------------------");
         }
 
-        public double GetLengthInput()
-        {
-            Console.Write("Length of boat: ");
-            return double.Parse(Console.ReadLine());
-        }
-
-        public model.BoatCategory GetCategoryInput()
-        {
-            DisplayBoatTypes();
-            Console.Write("Choose category: ");
-            int categoryId = int.Parse(Console.ReadLine());
-            return (model.BoatCategory)categoryId;
-        }
-
-        private void DisplayBoatTypes()
+        public void DisplayBoatTypes()
         {
             Console.WriteLine("--------------------------------");
             Console.WriteLine("-     Available boat types     -");
@@ -42,10 +28,32 @@ namespace YachtClub.view
             }
         }
 
-        public int GetIdInput()
+        /**
+         * @return model.BoatCategory
+         * Keeps prompting for valid integer representing a model.BoatCategory value
+         */
+        public model.BoatCategory GetCategoryInput()
         {
-            Console.WriteLine("Id: ");
-            return int.Parse(Console.ReadLine());
+            Console.WriteLine("Input boat category: ");
+            int categoryId = 0;
+            model.BoatCategory? category = null;
+            do
+            {
+                if (int.TryParse(Console.ReadLine(), out categoryId))
+                {
+                    if (categoryId < Enum.GetNames(typeof(model.BoatCategory)).Length && categoryId > 0)
+                    {
+                        category = (model.BoatCategory)categoryId;
+                        break;
+                    }
+                    Console.WriteLine("That's not a valid boat category.");
+                }
+                else
+                {
+                    Console.WriteLine("That's not an integer..");
+                }
+            } while (true);
+            return (model.BoatCategory)categoryId;
         }
     }
 }

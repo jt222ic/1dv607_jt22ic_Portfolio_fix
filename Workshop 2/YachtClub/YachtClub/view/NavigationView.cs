@@ -36,25 +36,30 @@ namespace YachtClub.view
 
             Console.WriteLine(sb.ToString());
         }
-
+        
+        /**
+         * @return view.NavigationView.Choices - enum representing chosen start menu operation
+         * Key presses outside 1, 2, 3 and 4 are ignored
+         */
         public Choices GetStartMenuOption()
         {
             // The @param true to ReadKey supresses printing of the pressed key
-            ConsoleKeyInfo keyPressed = Console.ReadKey(true);
-            switch (keyPressed.KeyChar)
+            do
             {
-                case '1':
-                    return Choices.ListUsersCompact;
-                case '2':
-                    return Choices.ListUsersVerbose;
-                case '3':
-                    return Choices.AddMember;
-                case '4':
-                    return Choices.ExitApplication;
-                default:
-                    return Choices.ExitApplication;
-                
-            }
+                ConsoleKeyInfo keyPressed = Console.ReadKey(true);
+                switch (keyPressed.KeyChar)
+                {
+                    case '1':
+                        return Choices.ListUsersCompact;
+                    case '2':
+                        return Choices.ListUsersVerbose;
+                    case '3':
+                        return Choices.AddMember;
+                    case '4':
+                        return Choices.ExitApplication;
+
+                }
+            } while (true);
         }
 
         public void ClearMenu()

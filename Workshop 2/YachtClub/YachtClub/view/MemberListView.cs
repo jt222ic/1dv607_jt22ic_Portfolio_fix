@@ -60,33 +60,5 @@ namespace YachtClub.view
                 Console.WriteLine("Length: {0}\n", boat.Length);
             }
         }
-
-        public model.Member GetChosenMember()
-        {
-            model.Member selectedMember = null;
-
-            while (true)
-            {
-                Console.Write("Select a user (by ID): ");
-                var id = int.Parse(Console.ReadLine());
-                selectedMember = m_memberList.GetMemberById(id);
-                if (selectedMember != null)
-                {
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("No user with that ID..");
-                }
-            }
-
-            return selectedMember;     
-        }
-
-        public void ShowFailedUserPickMessage()
-        {
-            Console.WriteLine("There is no user with that ID. Press any key to continue.");
-            Console.ReadKey(true);
-        }
     }
 }

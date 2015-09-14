@@ -11,7 +11,7 @@ namespace YachtClub.controller
         private view.MemberView m_memberView;
         private view.BoatView m_boatView = new view.BoatView();
         private model.MemberList m_memberList;
-        private view.AddMemberView m_addMemberView = new view.AddMemberView();
+        private view.BaseInputView m_inputView = new view.BaseInputView();
 
         public MemberController(model.MemberList memberList)
         {
@@ -26,8 +26,8 @@ namespace YachtClub.controller
             switch (whatDo)
             {
                 case YachtClub.view.MemberView.MemberHandleOperation.Edit:
-                    string name = m_addMemberView.RetrieveName();
-                    string socialSecurityNumber = m_addMemberView.RetrieveSocialSecurityNumber();
+                    string name = m_inputView.GetStringFromUser("Input name: ");
+                    string socialSecurityNumber = m_inputView.GetStringFromUser("Input social security number: ");
                     member.Name = name;
                     member.SocialSecurityNumber = socialSecurityNumber;
                     m_memberView.ShowEditConfirmMessage(member);
@@ -52,22 +52,27 @@ namespace YachtClub.controller
                     break;
                 case YachtClub.view.MemberView.MemberHandleOperation.RegisterBoat:
                     m_boatView.ShowRegistrationStart();
+                    m_boatView.DisplayBoatTypes();
                     model.BoatCategory category = m_boatView.GetCategoryInput();
-                    double length = m_boatView.GetLengthInput();
-                    int id = m_boatView.GetIdInput();
+                    double length = m_inputView.GetDoubleFromUser("Input boat length: ");
+                    int id = m_inputView.GetIntegerFromUser("Input boat ID: ");
                     member.RegisterBoat(new model.Boat(length, category, id));
                     break;
                 case YachtClub.view.MemberView.MemberHandleOperation.DeleteBoat:
                     m_memberView.ShowMembersBoats();
-                    try
+                    while (true)
                     {
-                        model.Boat boatToDelete = m_memberView.GetBoatToDelete();
-                        member.DeleteBoat(boatToDelete);
-                        m_memberView.ShowDeleteBoatSuccessMessage(boatToDelete.BoatId);
-                    }
-                    catch 
-                    {
-                        m_memberView.ShowDeleteBoatFailureMessage();
+                        try
+                        {
+                            model.Boat boatToDelete = m_memberView.GetBoatToDelete();
+                            member.DeleteBoat(boatToDelete);
+                            m_memberView.ShowDeleteBoatSuccessMessage(boatToDelete.BoatId);
+                            break;
+                        }
+                        catch
+                        {
+                            m_memberView.ShowDeleteBoatFailureMessage();
+                        }   
                     }
                     break;
                 case YachtClub.view.MemberView.MemberHandleOperation.Back:
@@ -81,16 +86,17 @@ namespace YachtClub.controller
         {
             try
             {
-                string name = m_addMemberView.RetrieveName();
-                string socialSecurityNumber = m_addMemberView.RetrieveSocialSecurityNumber();
-                int memberId = m_addMemberView.RetrieveMemberId();
+                string name = m_inputView.GetStringFromUser("Input name: ");
+                string socialSecurityNumber = m_inputView.GetStringFromUser("Input social security number: ");
+                int memberId = m_inputView.GetIntegerFromUser("Input user ID: ");
                 model.Member member = new model.Member(name, socialSecurityNumber, memberId);
                 m_memberList.RegisterMember(member);
-                m_addMemberView.PrintAddSuccess(name);
+                m_inputView.PrintAddSuccess(name);
             }
             catch
             {
-                m_addMemberView.PrintAddFailure();
+                Console.WriteLine("Hello");
+                m_inputView.PrintAddFailure();
             }
         }
     }

@@ -23,6 +23,12 @@ namespace YachtClub.view
             m_member = member;
         }
 
+        public model.Boat GetBoatToDelete()
+        {
+            Console.Write("ID for boat to delete: ");
+            return m_member.GetBoatByID(int.Parse(Console.ReadLine()));
+        }
+
         public void ShowMember()
         {
             Console.Clear();
@@ -65,22 +71,23 @@ namespace YachtClub.view
 
         public MemberHandleOperation GetWhatToDoWithUser()
         {
-            ConsoleKeyInfo keyPressed = Console.ReadKey(true);
-            switch (keyPressed.KeyChar)
+            do
             {
-                case '1':
-                    return MemberHandleOperation.Edit;
-                case '2':
-                    return MemberHandleOperation.Delete;
-                case '3':
-                    return MemberHandleOperation.RegisterBoat;
-                case '4':
-                    return MemberHandleOperation.DeleteBoat;
-                case '5':
-                    return MemberHandleOperation.Back;
-                default:
-                    return MemberHandleOperation.Back;
-            }
+                ConsoleKeyInfo keyPressed = Console.ReadKey(true);
+                switch (keyPressed.KeyChar)
+                {
+                    case '1':
+                        return MemberHandleOperation.Edit;
+                    case '2':
+                        return MemberHandleOperation.Delete;
+                    case '3':
+                        return MemberHandleOperation.RegisterBoat;
+                    case '4':
+                        return MemberHandleOperation.DeleteBoat;
+                    case '5':
+                        return MemberHandleOperation.Back;
+                }
+            } while (true);
         }
 
         public bool ConfirmDelete()
@@ -107,12 +114,6 @@ namespace YachtClub.view
             Console.WriteLine("Member {0} has been updated.", memberAdded.Name);
         }
 
-        public model.Boat GetBoatToDelete()
-        {
-            Console.Write("ID for boat to delete: ");
-            return m_member.GetBoatByID(int.Parse(Console.ReadLine()));
-        }
-
         public void ShowDeleteBoatSuccessMessage(int id)
         {
             Console.WriteLine("Boat {0} was deleted", id);
@@ -122,7 +123,6 @@ namespace YachtClub.view
         public void ShowDeleteBoatFailureMessage()
         {
             Console.WriteLine("There is no boat with that ID");
-            Console.ReadKey();
         }
     }
 }

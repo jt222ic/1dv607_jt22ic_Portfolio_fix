@@ -26,7 +26,7 @@ namespace YachtClub.view
 
         public double GetDoubleFromUser(string prompt)
         {
-            Console.WriteLine(prompt);
+            Console.Write(prompt);
             double input = 0;
             do
             {
@@ -56,22 +56,17 @@ namespace YachtClub.view
             return input;
         }
 
-        public void PrintAddSuccess(string name)
+        public void PrintMessage(string message)
         {
-            Console.WriteLine("User \"{0}\" successfully added to the registry. Press any key to continue.", name);
-            Console.ReadKey();
-        }
-
-        public void PrintAddFailure()
-        {
-            Console.WriteLine("User registration failed. Press any key to continue.");
-            Console.ReadKey();
-        }
-
-        public void ShowFailedUserPickMessage()
-        {
-            Console.WriteLine("There is no user with that ID. Press any key to continue.");
+            Console.WriteLine(message);
             Console.ReadKey(true);
+        }
+
+        public bool Confirm(string prompt)
+        {
+            Console.WriteLine(prompt);
+            ConsoleKeyInfo pressedKey = Console.ReadKey(true);
+            return pressedKey.KeyChar == 'y';
         }
     }
 }

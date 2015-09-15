@@ -89,40 +89,5 @@ namespace YachtClub.view
                 }
             } while (true);
         }
-
-        public bool ConfirmDelete()
-        {
-            Console.WriteLine("Are you sure you want to delete this member? Press \"y\" to delete");
-            ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-            return pressedKey.KeyChar == 'y';
-        }
-
-        public void ShowFailedDeleteMessage()
-        {
-            Console.WriteLine("Member not deleted");
-            Console.ReadKey();
-        }
-
-        public void ShowSuccessDeleteMessage()
-        {
-            Console.WriteLine("Member successfully deleted!");
-            Console.ReadKey();
-        }
-
-        public void ShowEditConfirmMessage(model.Member memberAdded)
-        {
-            Console.WriteLine("Member {0} has been updated.", memberAdded.Name);
-        }
-
-        public void ShowDeleteBoatSuccessMessage(int id)
-        {
-            Console.WriteLine("Boat {0} was deleted", id);
-            Console.ReadKey();
-        }
-
-        public void ShowDeleteBoatFailureMessage()
-        {
-            Console.WriteLine("There is no boat with that ID");
-        }
     }
 }

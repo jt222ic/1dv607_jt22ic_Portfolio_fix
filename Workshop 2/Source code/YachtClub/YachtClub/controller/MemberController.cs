@@ -24,6 +24,31 @@ namespace YachtClub.controller
             m_listView = new view.MemberListView(m_list);
         }
 
+        public void DoRun()
+        {
+            m_nav.ClearMenu();
+            m_nav.ShowStartMenu();
+            view.NavigationView.Choices option = m_nav.GetStartMenuOption();
+
+            switch (option)
+            {
+                case view.NavigationView.Choices.ListUsersCompact:
+                    DoListMembers(true);
+                    DoRun();
+                    break;
+                case view.NavigationView.Choices.ListUsersVerbose:
+                    DoListMembers(false);
+                    DoRun();
+                    break;
+                case view.NavigationView.Choices.AddMember:
+                    DoAddMember();
+                    DoRun();
+                    break;
+                case view.NavigationView.Choices.ExitApplication:
+                    return;
+            }
+        }
+
         private void DoHandleMember(model.Member member)
         {
             m_memberView = new view.MemberView(member);
@@ -55,19 +80,19 @@ namespace YachtClub.controller
         {
             try
             {
-                if (m_memberView.ConfirmDelete())
+                if (m_input.Confirm("Are you sure you want to delete this member? Press \"y\" to delete"))
                 {
                     m_list.DeleteMember(memberToDelete);
-                    m_memberView.ShowSuccessDeleteMessage();
+                    m_input.PrintMessage("Member successfully deleted!");
                 }
                 else
                 {
-                    m_memberView.ShowFailedDeleteMessage();
+                    m_input.PrintMessage("User not deleted");
                 }
             }
             catch
             {
-                m_memberView.ShowFailedDeleteMessage();
+                m_input.PrintMessage("Deleting user failed. Try again later.");
             }
         }
 
@@ -80,12 +105,12 @@ namespace YachtClub.controller
                 {
                     model.Boat boatToDelete = m_memberView.GetBoatToDelete();
                     memberWhoseBoatToDelete.DeleteBoat(boatToDelete);
-                    m_memberView.ShowDeleteBoatSuccessMessage(boatToDelete.BoatId);
+                    m_input.PrintMessage("Boat deleted");
                     break;
                 }
                 catch
                 {
-                    m_memberView.ShowDeleteBoatFailureMessage();
+                    m_input.PrintMessage("There is no boat with that ID");
                 }
             }
         }
@@ -109,11 +134,11 @@ namespace YachtClub.controller
                 int memberId = m_input.GetIntegerFromUser("Input user ID: ");
                 model.Member member = new model.Member(name, socialSecurityNumber, memberId);
                 m_list.RegisterMember(member);
-                m_input.PrintAddSuccess(name);
+                m_input.PrintMessage("User successfully added to the registry. Press any key to continue.");
             }
             catch
             {
-                m_input.PrintAddFailure();
+                m_input.PrintMessage("User registration failed. Press any key to continue.");
             }
         }
 
@@ -123,7 +148,7 @@ namespace YachtClub.controller
             string socialSecurityNumber = m_input.GetStringFromUser("Input social security number: ");
             memberToEdit.Name = name;
             memberToEdit.SocialSecurityNumber = socialSecurityNumber;
-            m_memberView.ShowEditConfirmMessage(memberToEdit);
+            m_input.PrintMessage("Member has been updated.");
         }
 
         private void DoListMembers(bool compressedList)
@@ -136,31 +161,6 @@ namespace YachtClub.controller
             catch
             {
                 DoRun();
-            }
-        }
-
-        public void DoRun()
-        {
-            m_nav.ClearMenu();
-            m_nav.ShowStartMenu();
-            view.NavigationView.Choices option = m_nav.GetStartMenuOption();
-
-            switch (option)
-            {
-                case view.NavigationView.Choices.ListUsersCompact:
-                    DoListMembers(true);
-                    DoRun();
-                    break;
-                case view.NavigationView.Choices.ListUsersVerbose:
-                    DoListMembers(false);
-                    DoRun();
-                    break;
-                case view.NavigationView.Choices.AddMember:
-                    DoAddMember();
-                    DoRun();
-                    break;
-                case view.NavigationView.Choices.ExitApplication:
-                    return;
             }
         }
     }

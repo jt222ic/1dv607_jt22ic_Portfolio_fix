@@ -41,9 +41,10 @@ namespace YachtClub.view
             {
                 if (int.TryParse(Console.ReadLine(), out categoryId))
                 {
-                    if (categoryId < Enum.GetNames(typeof(model.BoatCategory)).Length && categoryId > 0)
+                    if (categoryId < Enum.GetNames(typeof(model.BoatCategory)).Length + 1 && categoryId > 0)
                     {
-                        category = (model.BoatCategory)categoryId;
+                        // -1 because of zero based enums
+                        category = (model.BoatCategory)categoryId - 1;
                         break;
                     }
                     Console.WriteLine("That's not a valid boat category.");
@@ -53,7 +54,7 @@ namespace YachtClub.view
                     Console.WriteLine("That's not an integer..");
                 }
             } while (true);
-            return (model.BoatCategory)categoryId;
+            return (model.BoatCategory)category;
         }
     }
 }

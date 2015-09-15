@@ -9,10 +9,44 @@ namespace YachtClub.view
     class MemberListView
     {
         private model.MemberList m_memberList;
+        private view.BaseInputView m_input;
 
         public MemberListView(model.MemberList memberList)
         {
             m_memberList = memberList;
+            m_input = new view.BaseInputView();
+        }
+        
+        /**
+         * @return model.Member if m_memberList is populated
+         * If it's not, @return null
+         */
+        public model.Member GetUserChosenFromList(bool compressList)
+        {
+            ShowMembers(compressList);
+            if (m_memberList.IsEmpty())
+            {
+                Console.WriteLine("-            No users are registered           -");
+                Console.WriteLine("-            Press any key to return           -");
+                Console.WriteLine("------------------------------------------------");
+                Console.ReadKey(true);
+                return null;
+            }
+            else
+            {
+                model.Member member = null;
+                while (true)
+                {
+                    int id = m_input.GetIntegerFromUser("Select user by ID: ");
+                    member = m_memberList.GetMemberById(id);
+                    if (member != null)
+                    {
+                        break;
+                    }
+                    Console.WriteLine("No user with id {0}", id);
+                }
+                return member;
+            }
         }
 
         public void ShowMembers(bool compressedList)
@@ -27,11 +61,6 @@ namespace YachtClub.view
                 Console.WriteLine("MemberID\t\tName\tPersonal number");
             }
             Console.WriteLine("------------------------------------------------");
-
-            if (m_memberList.IsEmpty())
-            {
-            Console.WriteLine("-            No users are registered           -");
-            }
 
             foreach (model.Member member in m_memberList.Members)
             {
@@ -49,8 +78,6 @@ namespace YachtClub.view
                 }
                 Console.WriteLine();
             }
-            Console.WriteLine("------------------------------------------------");
-            Console.WriteLine("-        Press 0 to go back to main menu       -");
             Console.WriteLine("------------------------------------------------");
         }
 

@@ -1,0 +1,6 @@
+c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\bin\Debug\YachtClub.exe.config
+c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\obj\Debug\YachtClub.csprojResolveAssemblyReference.cache
+c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\bin\Debug\YachtClub.exe
+c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\bin\Debug\YachtClub.pdb
+c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\obj\Debug\YachtClub.exe
+c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\obj\Debug\YachtClub.pdb

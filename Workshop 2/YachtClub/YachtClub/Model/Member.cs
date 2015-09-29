@@ -17,8 +17,6 @@ namespace YachtClub.Model
         // List<Boat> list = new List<Boat>();                                // skapar en lista av båt klassen senare
 
         
-
-
         public int GetSecurityNumber
         {
             get {
@@ -72,9 +70,6 @@ namespace YachtClub.Model
                 MemberId = value;
             }
         }
-
-       
-
 
 
         public Member(string name, int memberId, int securityname)

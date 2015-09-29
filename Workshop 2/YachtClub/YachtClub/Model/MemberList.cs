@@ -3,10 +3,60 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace YachtClub.Model
+// binary formatter
+namespace YachtClub.Model             
 {
     class MemberList
     {
+
+         private List<Member> memberList = new List<Member>();
+         public Model.DAL.MemberDAL memberDal = new DAL.MemberDAL();
+         
+        // skapa en objekt som ska sparas i Data acess lager
+
+
+        //updaterar memberlistan
+
+         public void UpdateMemberList(string name, int memberId, int securityname)                // uppdatera information hämtar in ID, namn och security? allstå ska de hamna i Parameter för att tillämpas
+         {
+
+         }
+        public void RemoveMemberList(Member member)            // hämtar hela Member objekt klass för att användas
+        {
+
+            memberList.Remove(member);   // radera av vilken anledning?
+                                        
+        }
+
+        public void GetMemberID(int memberID)          
+        {
+
+           // hämtar in Medlems id 
+        }
+
+        public void SaveMember()
+        {
+
+            memberDal.SaveToFile(memberList);
+           
+                    
+        }
+
+        //ta bort MemberListan
+
+        //updatera Memberlistan
+
+        // få tag på memberID
+
+        public MemberList()
+         {
+
+                    // ska bestå av Dataacess DAL
+
+         }
+
+
+
+
     }
 }

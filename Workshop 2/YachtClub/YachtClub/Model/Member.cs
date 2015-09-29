@@ -80,5 +80,10 @@ namespace YachtClub.Model
         }
 
 
+
+        internal void Add(List<Member> memberList)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

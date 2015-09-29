@@ -19,17 +19,22 @@ namespace YachtClub.Model
 
          public void UpdateMemberList(string name, int memberId, int securityname)                // uppdatera information hämtar in ID, namn och security? allstå ska de hamna i Parameter för att tillämpas
          {
+             Member TobeAdded = new Member(name, memberId,securityname);                        // instantisera ny objekt 
+             TobeAdded.Add(memberList);                                                       // hämta in objekt listan add
+             SaveMember();                                                                     //spara in uppdateringen
 
+             
          }
-        public void RemoveMemberList(Member member)            // hämtar hela Member objekt klass för att användas
+        public void RemoveMemberList(Member member)              // hämtar hela Member objekt klass för att användas
         {
 
-            memberList.Remove(member);   // radera av vilken anledning?
-                                        
+            memberList.Remove(member);                          // radera av vilken anledning?
+            SaveMember();                         
         }
 
         public void GetMemberID(int memberID)          
         {
+
 
            // hämtar in Medlems id 
         }
@@ -51,7 +56,7 @@ namespace YachtClub.Model
         public MemberList()
          {
 
-                    // ska bestå av Dataacess DAL
+                     
 
          }
 

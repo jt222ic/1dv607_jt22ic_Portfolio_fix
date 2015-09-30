@@ -79,7 +79,8 @@ namespace YachtClub.Model
             SecurityNumber = securityname;
         }
 
-
+        //Varje gång ett objekt sätts i konstruktorn så kallar vi på sendToMemberList
+        //skickar medlemsobjektet (Member member)
 
         internal void Add(List<Member> memberList)
         {

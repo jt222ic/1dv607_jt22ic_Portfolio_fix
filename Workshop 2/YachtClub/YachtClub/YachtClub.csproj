@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Boat.cs" />
     <Compile Include="Model\DAL\MemberDAL.cs" />
     <Compile Include="Model\Member.cs" />
     <Compile Include="Model\MemberList.cs" />

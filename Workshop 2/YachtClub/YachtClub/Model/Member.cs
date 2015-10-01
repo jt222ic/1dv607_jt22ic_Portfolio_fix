@@ -14,8 +14,6 @@ namespace YachtClub.Model
         private int MemberId;
         private string Name;
 
-        
-
        //  List<MemberList> MemberList = new List<MemberList>();     tror jag ska skapa listan från en annan klass         kanske vid controller//   skapa en lista av Member klassen ?? är det interface eller bara en lista av en klass
         // List<Boat> list = new List<Boat>();                                // skapar en lista av båt klassen senare
 

@@ -43,7 +43,7 @@ namespace YachtClub.Model
         {
 
             memberList.Remove(member);                          // radera av vilken anledning?
-            SaveMember();                         
+                                 
         }
 
         public void GetMemberID(Member memberID)          

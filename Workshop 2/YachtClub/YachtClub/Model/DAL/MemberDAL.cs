@@ -18,8 +18,6 @@ namespace YachtClub.Model.DAL
 
 
 
-
-
         public void SaveToFile(List<Member> listan)                                                 // referens för användning av Serialized 
         {
             using (FileStream fileStream = new FileStream(_FILE_PATH, FileMode.OpenOrCreate))             // object som ska sparas i fil

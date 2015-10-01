@@ -32,27 +32,32 @@ namespace YachtClub.Model.DAL
 
 
 
-        public static MemberDAL LoadFromFile(List<Member> listanload)                                                    // objekt som ska laddas från 
+        public static List<Member> LoadFromFile(List<Member> listanload)                                                    // objekt som ska laddas från 
         {
             FileStream fileStream = null;
+            List<Member> loadedList;
 
             try
             {
-                FileStream file = new FileStream(_FILE_PATH, FileMode.Open);
+                FileStream file = new FileStream(_FILE_PATH, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read);
 
                 BinaryFormatter binFormatter = new BinaryFormatter();
-                return (MemberDAL)binFormatter.Deserialize(fileStream);
+                loadedList = (List<Member>)binFormatter.Deserialize(file);
+                file.Close();
+                return loadedList;
 
             }
 
             catch
             {
-                return new MemberDAL();
+                  //return new MemberDAL();
             }
             finally
             {
                 if (fileStream != null) fileStream.Close();
             }
+
+            return null;
 
             
         }

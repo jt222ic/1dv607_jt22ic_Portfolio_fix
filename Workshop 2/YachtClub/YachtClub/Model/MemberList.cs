@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 // binary formatter
 namespace YachtClub.Model             
 {
+    [Serializable]
     class MemberList
     {
 
          private List<Member> memberList = new List<Member>();
          public Model.DAL.MemberDAL memberDal = new DAL.MemberDAL();
-         
-        // skapa en objekt som ska sparas i Data acess lager
+                                                                                                     // skapa en objekt som ska sparas i Data acess lager
 
 
         //updaterar memberlistan
@@ -21,10 +21,20 @@ namespace YachtClub.Model
          {
              Member TobeAdded = new Member(name, memberId,securityname);                        // instantisera ny objekt 
              TobeAdded.Add(memberList);                                                       // hämta in objekt listan add
-             SaveMember();                                                                     //spara in uppdateringen
+            // SaveMember();                                                                     //spara in uppdateringen
 
-             
          }
+
+
+        public void Addmember(Member AddMember)
+         {  
+             memberList.Add(AddMember);
+             SaveMember(); 
+           
+                                                                                                    //foreach (Member m in memberList)
+                                                                                                        //{
+                                                                                                        //    Console.WriteLine(m.GetName);
+            }
 
         //metod som tar emot en (Member member), lägger till member till listan memberList.Add(member);
         //listan har objekt i sig, då skickar vi listan till MemberDAL (memberList)
@@ -36,17 +46,23 @@ namespace YachtClub.Model
             SaveMember();                         
         }
 
-        public void GetMemberID(int memberID)          
+        public void GetMemberID(Member memberID)          
         {
-
-
-           // hämtar in Medlems id 
+            memberID.GetMemberID();
+                                                             // hämtar in Medlems id 
         }
 
         public void SaveMember()
         {
 
-            memberDal.SaveToFile(memberList);
+             memberDal.SaveToFile(memberList);
+
+             List<Member> newList = DAL.MemberDAL.LoadFromFile(memberList);
+
+             foreach (Member m in newList)
+             {
+                 Console.WriteLine(m.GetName);
+             }
            
                     
         }
@@ -60,12 +76,15 @@ namespace YachtClub.Model
         public MemberList()
          {
 
-                     
+                     //automatisk genererad konstruktor
 
          }
 
 
 
-
+        internal void Addmember()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

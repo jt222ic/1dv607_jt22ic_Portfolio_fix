@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace YachtClub.Model
 {
-    [Serializable]
     class Member
     {
 
         private int SecurityNumber;                                        // registrera och returnera personlighets nummer fält, måste vara privata för objektorientering
         private int MemberId;
         private string Name;
-
-        
 
        //  List<MemberList> MemberList = new List<MemberList>();     tror jag ska skapa listan från en annan klass         kanske vid controller//   skapa en lista av Member klassen ?? är det interface eller bara en lista av en klass
         // List<Boat> list = new List<Boat>();                                // skapar en lista av båt klassen senare
@@ -30,7 +27,9 @@ namespace YachtClub.Model
             {
                 SecurityNumber = value;                       
             }
+
         }
+
 
         public string GetName
         {
@@ -78,35 +77,20 @@ namespace YachtClub.Model
             Name = name;
             MemberId = memberId;
             SecurityNumber = securityname;
+           
 
-
-            sendToMemberList(this);                // hämta hela objektet 
-            
         }
 
-        //public void sendToMemberList(MemberList medlemsinfo)
-        //{
-        //    medlemsinfo.Addmember(new Member(Name, MemberId, SecurityNumber));
-             
-        //}
-
-        public void sendToMemberList(Member member)
+        public int sendToMemberList(MemberList medlemsinfo)
         {
-            MemberList mList = new MemberList();
-
-            mList.Addmember(member);
-
+            medlemsinfo.Addmember(new Member);
+             
         }
         
         //Varje gång ett objekt sätts i konstruktorn så kallar vi på sendToMemberList
         //skickar medlemsobjektet (Member member)
 
         internal void Add(List<Member> memberList)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void GetMemberID()
         {
             throw new NotImplementedException();
         }

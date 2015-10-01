@@ -16,7 +16,7 @@ namespace YachtClub.Model
         // Boatname,BoatCategory, BoatLength
             // get: set;
             // konstruktor 
-            // jonas säger att jag ska kalla båtklasssen ifrån medlemmen
+            // jonas säger att jag ska kalla till båtklasssen ifrån medlemmen
             // controller för att kalla på objekt skapade, med GetName, GetName ID, Security number) med instans av ny objekt klass
     }
 }

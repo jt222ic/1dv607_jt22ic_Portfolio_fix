@@ -7,6 +7,5 @@ c:\users\jt222ic\documents\visual studio 2013\Projects\YachtClub\YachtClub\obj\D
 C:\Users\jt222ic\Desktop\Workshops\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe.config
 C:\Users\jt222ic\Desktop\Workshops\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.exe
 C:\Users\jt222ic\Desktop\Workshops\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.pdb
-C:\Users\jt222ic\Desktop\Workshops\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.csprojResolveAssemblyReference.cache
 C:\Users\jt222ic\Desktop\Workshops\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe
 C:\Users\jt222ic\Desktop\Workshops\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.pdb

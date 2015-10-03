@@ -93,8 +93,8 @@ namespace YachtClub.Model
             MemberList mList = new MemberList();
 
             mList.Addmember(member);
-
         }
+     
         
         //Varje gång ett objekt sätts i konstruktorn så kallar vi på sendToMemberList
         //skickar medlemsobjektet (Member member)
@@ -104,9 +104,6 @@ namespace YachtClub.Model
             throw new NotImplementedException();
         }
 
-        internal void GetMemberID()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

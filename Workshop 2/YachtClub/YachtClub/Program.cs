@@ -15,6 +15,8 @@ namespace YachtClub
 
             Model.Member member2 = new Model.Member("pådej", 102, 50020);
 
+           
+
           
 
 

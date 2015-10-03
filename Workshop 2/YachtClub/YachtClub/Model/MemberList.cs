@@ -46,12 +46,7 @@ namespace YachtClub.Model
                                  
         }
 
-        public void GetMemberID(Member memberID)          
-        {
-            memberID.GetMemberID();
-                                                             // hämtar in Medlems id 
-        }
-
+    
         public void SaveMember()
         {
 

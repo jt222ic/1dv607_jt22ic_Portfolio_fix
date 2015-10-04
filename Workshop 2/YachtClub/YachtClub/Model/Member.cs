@@ -82,6 +82,26 @@ namespace YachtClub.Model
             
         }
 
+        // båt //
+
+        List<Boat> Boatlist = new List<Boat>(); 
+
+        public void sendToBoatList(Boat boat)
+        {
+            Boatlist.Add(boat);
+        }
+        public void RemoveBoatList(Boat boat)
+        {
+            Boatlist.Remove(boat);
+        }
+
+        public void UpdateBoatList(double length, Boat.BoatCategory categories, int boatid)
+        {
+            Boat B_TobeAdded = new Boat(length, categories, boatid);
+            B_TobeAdded.Add(Boatlist);                                          // name B with underline so i dont mix up with tobeadded from Member class
+        }
+        
+
         //public void sendToMemberList(MemberList medlemsinfo)
         //{
         //    medlemsinfo.Addmember(new Member(Name, MemberId, SecurityNumber));

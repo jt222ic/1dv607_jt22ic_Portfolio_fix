@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace YachtClub.Model
 {
+    [Serializable]
     class Boat
     {
 
-        private double Length;
+        private double _Length;
+        private BoatCategory _Boattype;
         
         private int BoatID;
         private BoatCategory Categories;
@@ -17,20 +19,16 @@ namespace YachtClub.Model
 
         public double GetLength
         {
-            get { return Length; }
-            set { Length = value; }
-        }
+            get {
+                return _Length; 
+            }
 
-        public int GetBoatID
-        {
-            get { return BoatID; }
-            set { 
-                if(value<= 0)
-                {
-                    throw new ArgumentException("There's no value in Boat ID");
-                }
-                
-                BoatID = value; }
+            set {if(_Length <=0 || _Length >= 500)
+            {
+                throw new ArgumentException("unnessary length of a boat");
+            }
+                _Length = value; 
+            }
         }
 
         public enum BoatCategory
@@ -41,30 +39,32 @@ namespace YachtClub.Model
             other
 
         }
-
-        public BoatCategory GetBoten
+        public BoatCategory GetCategory
         {
-            get {return Categories;}
-
-
-            set { 
-                Categories = value;
+            get 
+            {
+                return _Boattype; 
+            }
+            set
+            {
+                if (BoatCategory.IsDefined(typeof(BoatCategory), value))
+                {
+                    _Boattype = value;
                 }
-        }
+                else
+                {
+                    throw new ArgumentOutOfRangeException();
+                }
 
+            }
+        }
 
      
-        public Boat(double length,BoatCategory categories, int boatid)
-        {   Length = length;
-             BoatID = boatid;
-             Categories = categories;
+        public Boat(int i,double length)
+        {   _Length = length;
+            _Boattype = (BoatCategory)i;
+             
         }
-
-
-
-        
-
-        
 
             // enumerable för båt kategorier
             // Kapsla in alla info

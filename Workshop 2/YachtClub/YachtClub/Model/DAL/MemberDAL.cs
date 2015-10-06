@@ -9,54 +9,66 @@ using System.IO;
 namespace YachtClub.Model.DAL
 {
     [Serializable]
-    class MemberDAL
+    static class MemberDAL
     {
-        private static readonly string _FILE_PATH = "Listan.DAT";      //refrens https://www.youtube.com/watch?v=URw86vBWeGE
-        public int MemberID { get; set; }
-        public string Name { get; set; }
-        public int SecurityNumber { get; set; }
+        private static readonly string _FILE_PATH = "Listan.bin";      //refrens https://www.youtube.com/watch?v=URw86vBWeGE
 
+        private static List<Member> memberList = new List<Member>();
+        
 
+        public static void Initialize()
+        {
+            memberList = LoadFromFile();
+        }
 
-        public void SaveToFile(List<Member> listan)                                                 // referens för användning av Serialized 
+        public static void removeMember(int choice)
+        {
+            memberList.RemoveAt(choice);
+          
+        }
+
+        public static void SaveToFile()                                                 // referens för användning av Serialized 
         {
             using (FileStream fileStream = new FileStream(_FILE_PATH, FileMode.OpenOrCreate))             // object som ska sparas i fil
             { 
                 BinaryFormatter binFormatter = new BinaryFormatter();
-                binFormatter.Serialize(fileStream,listan);
+                binFormatter.Serialize(fileStream, memberList);
             }
         }
 
 
+        public static void AddMemberToList(Member member)
+        {
+            memberList.Add(member);
+        }
 
+        public static IReadOnlyCollection<Member> getMemberList()
+        {
 
-        public static List<Member> LoadFromFile(List<Member> listanload)                                                    // objekt som ska laddas från 
+            return memberList.AsReadOnly();
+
+        }
+
+     
+        public static List<Member> LoadFromFile()                                                    // objekt som ska laddas från 
         {
             FileStream fileStream = null;
-            List<Member> loadedList;
+            List<Member> loadedList = null;
 
+            FileStream file = new FileStream(_FILE_PATH, FileMode.OpenOrCreate, FileAccess.Read);
+
+            BinaryFormatter binFormatter = new BinaryFormatter();
             try
             {
-                FileStream file = new FileStream(_FILE_PATH, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read);
-
-                BinaryFormatter binFormatter = new BinaryFormatter();
                 loadedList = (List<Member>)binFormatter.Deserialize(file);
-                file.Close();
-                return loadedList;
-
             }
-
-            catch
+            catch (Exception e)
             {
-                  //return new MemberDAL();
+                Console.Write("Error occurred while deserializing {0}", _FILE_PATH);
             }
-            finally
-            {
-                if (fileStream != null) fileStream.Close();
-            }
-
-            return null;
-
+            file.Close();
+            // fileStream.Close();
+            return loadedList;
             
         }
     }

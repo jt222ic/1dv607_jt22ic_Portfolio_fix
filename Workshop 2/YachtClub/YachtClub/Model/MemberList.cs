@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YachtClub.Model.DAL;
 // binary formatter
 namespace YachtClub.Model             
 {
@@ -11,29 +12,25 @@ namespace YachtClub.Model
     {
 
          private List<Member> memberList = new List<Member>();
-         public Model.DAL.MemberDAL memberDal = new DAL.MemberDAL();
+        // public Model.DAL.MemberDAL memberDal = new DAL.MemberDAL();
                                                                                                      // skapa en objekt som ska sparas i Data acess lager
 
 
         //updaterar memberlistan
 
-         public void UpdateMemberList(string name, int memberId, int securityname)                // uppdatera information hämtar in ID, namn och security? allstå ska de hamna i Parameter för att tillämpas
-         {
-             Member TobeAdded = new Member(name, memberId,securityname);                        // instantisera ny objekt 
-             TobeAdded.Add(memberList);                                                       // hämta in objekt listan add
-            // SaveMember();                                                                     //spara in uppdateringen
-
+         public void UpdateMemberList(string name, int memberId, int securityname)                      
+         { 
+             Member TobeAdded = new Member(name, memberId,securityname);                             
+             TobeAdded.Add(memberList);                                                             
+         
          }
-
 
         public void Addmember(Member AddMember)
          {  
              memberList.Add(AddMember);
-             SaveMember(); 
-           
-                                                                                                    //foreach (Member m in memberList)
-                                                                                                        //{
-                                                                                                        //    Console.WriteLine(m.GetName);
+
+             //SaveMember(); 
+                                                                                             //    Console.WriteLine(m.GetName);
             }
 
         //metod som tar emot en (Member member), lägger till member till listan memberList.Add(member);
@@ -46,10 +43,10 @@ namespace YachtClub.Model
                                  
         }
 
-    
+   
         public void SaveMember()
         {
-
+            /*
              memberDal.SaveToFile(memberList);
 
              List<Member> newList = DAL.MemberDAL.LoadFromFile(memberList);
@@ -59,7 +56,7 @@ namespace YachtClub.Model
                  Console.WriteLine(m.GetName);
              }
            
-                    
+              */      
         }
 
         //ta bort MemberListan

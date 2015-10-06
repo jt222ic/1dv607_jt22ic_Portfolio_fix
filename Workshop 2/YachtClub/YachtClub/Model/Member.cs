@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YachtClub.Model.DAL;
 
 namespace YachtClub.Model
 {
@@ -10,14 +11,22 @@ namespace YachtClub.Model
     class Member
     {
 
+        List<Boat> Boatlist = new List<Boat>(); 
         private int SecurityNumber;                                        // registrera och returnera personlighets nummer fält, måste vara privata för objektorientering
         private int MemberId;
         private string Name;
+       // private MemberDAL mDAL = new MemberDAL();
 
-       //  List<MemberList> MemberList = new List<MemberList>();     tror jag ska skapa listan från en annan klass         kanske vid controller//   skapa en lista av Member klassen ?? är det interface eller bara en lista av en klass
+         //List<MemberList> MemberList = new List<MemberList>();     tror jag ska skapa listan från en annan klass         kanske vid controller//   skapa en lista av Member klassen ?? är det interface eller bara en lista av en klass
         // List<Boat> list = new List<Boat>();                                // skapar en lista av båt klassen senare
 
-        
+
+        public List<Boat> BoatList
+        {
+            get { return Boatlist; }
+        }
+      
+
         public int GetSecurityNumber
         {
             get {
@@ -82,9 +91,7 @@ namespace YachtClub.Model
             
         }
 
-        // båt //
-
-        List<Boat> Boatlist = new List<Boat>(); 
+       
 
         public void sendToBoatList(Boat boat)
         {
@@ -95,11 +102,11 @@ namespace YachtClub.Model
             Boatlist.Remove(boat);
         }
 
-        public void UpdateBoatList(double length, Boat.BoatCategory categories, int boatid)
-        {
-            Boat B_TobeAdded = new Boat(length, categories, boatid);
-            B_TobeAdded.Add(Boatlist);                                          // name B with underline so i dont mix up with tobeadded from Member class
-        }
+        //public void UpdateBoatList(double length, Boat.BoatCategory categories, int boatid)
+        //{
+        //    Boat B_TobeAdded = new Boat(length, categories, boatid);
+        //    B_TobeAdded.Add(Boatlist);                                          // name B with underline so i dont mix up with tobeadded from Member class
+        //}
         
 
         //public void sendToMemberList(MemberList medlemsinfo)
@@ -107,15 +114,12 @@ namespace YachtClub.Model
         //    medlemsinfo.Addmember(new Member(Name, MemberId, SecurityNumber));
              
         //}
-
+  
         public void sendToMemberList(Member member)
         {
-            MemberList mList = new MemberList();
-
-            mList.Addmember(member);
+            MemberDAL.AddMemberToList(member);
         }
      
-        
         //Varje gång ett objekt sätts i konstruktorn så kallar vi på sendToMemberList
         //skickar medlemsobjektet (Member member)
 
@@ -124,6 +128,9 @@ namespace YachtClub.Model
             throw new NotImplementedException();
         }
 
-      
+        internal void addnumber()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

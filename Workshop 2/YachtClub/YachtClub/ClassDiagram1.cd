@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="YachtClub.Controller.User">
+    <Position X="1.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAQgAAAAAAACAAAAAIAAAA=</HashCode>
+      <FileName>Controller\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YachtClub.Model.Boat">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="YachtClub.Model.Boat.BoatCategory" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\Boat.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAASAAAAAAAAABAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Boat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YachtClub.Model.Member">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAEAIAEBAAAAAAAgAAQQAACBAAAAAAAQAAAAABAE=</HashCode>
+      <FileName>Model\Member.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YachtClub.Model.DAL.MemberDAL">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAgAAAAAQAAAEAAAAQAAAAAAAIAAAAAAAAAEAI=</HashCode>
+      <FileName>Model\DAL\MemberDAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YachtClub.Program">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="YachtClub.View.ConsoleView">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAABAAAAAAAUACABAAEAAgBCAAAAAAEAAABSAABgAA=</HashCode>
+      <FileName>View\Console.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

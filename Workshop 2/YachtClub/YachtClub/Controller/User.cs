@@ -17,19 +17,15 @@ namespace YachtClub.Controller
         public void MainMenu()
         {
             View.ConsoleView c = new View.ConsoleView();
-            
-          
-    
             do
             {
-                
-             
+                try
+                {
                 c.DisplayInfo();
                 int Choice;
                 string choices = System.Console.ReadLine();
 
-                try
-                {
+              
                     Choice = int.Parse(choices);
 
                     switch (Choice)
@@ -48,7 +44,7 @@ namespace YachtClub.Controller
                             break;
 
                         case 3:
-                                                         //IReadOnlyCollection<Member> list = Mlist.GetList();
+                                                         
                             c.CompactList(MemberDAL.getMemberList());
                             
                             break;
@@ -61,9 +57,10 @@ namespace YachtClub.Controller
 
                 }
 
-                catch (System.FormatException e)
+                catch (Exception e)
                 {
-                    throw new ArgumentException(e.Message);
+                    Console.WriteLine("nåt gick fel");
+                    
                 }
 
             }
@@ -75,10 +72,11 @@ namespace YachtClub.Controller
             
 
             do{
-                
+                try
+               { 
             int choice = view.ListEditChoices();
 
-                try {
+               
                     IReadOnlyCollection<Member> m_list = MemberDAL.getMemberList();
                     switch(choice){
 
@@ -93,23 +91,17 @@ namespace YachtClub.Controller
                             break;
 
                         default: break;
-                        //case 3:
-
-                        //    Boat boat = new Boat(300,(Boat.BoatCategory)1,3);  // skickade in parameter båt till en medlems klass
-                            
-                        //    break;
+                      
                     }
                 }
-                catch (System.FormatException e)
+                catch (FormatException e)
                 {
-                    throw new ArgumentException(e.Message);
+                    Console.WriteLine("nåt gick fel");
                 }
             }
             while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
-           
         }
-
 
         public void selectMember(IReadOnlyCollection<Member> list)             // argument Listan
         {
@@ -123,12 +115,10 @@ namespace YachtClub.Controller
             }
             choice--;
             Member member = list.ElementAt(choice);
-            test.ShowMembers(member);
-            
-            int menuChoicce = int.Parse(Console.ReadLine());
+            test.ShowMembers(member);                        // skickar till show member visning av medlemmar
+           int menuChoicce = int.Parse(Console.ReadLine());
 
-            
-                switch (menuChoicce)
+                switch (menuChoicce)                    // menualternativ för Medlemmen
                 {
                     case 0:
                         return;
@@ -139,38 +129,70 @@ namespace YachtClub.Controller
 
                     case 2:
 
-                        MemberDAL.removeMember(choice);
+                        MemberDAL.removeMember(choice);           // tas bort medlemmen
                         break;
 
                     case 3:
-                        member.GetSecurityNumber = test.ChangeNumber();
+                        member.GetSecurityNumber = test.ChangeNumber();   // ändra personlighets nummer
                         break;
 
                     case 4:
                         test.ViewBoattype();
-                        int Boatchoice = int.Parse(test.Boattypeinfo());
+                        int Boatchoice = int.Parse(test.Boattypeinfo());            // användning av inmatning av boatchoice
 
-                        double BoatLength = double.Parse(test.BoattypeLength());// kan inte använda console write line eftersom det är void
-                        Boat FullBoat = new Boat(Boatchoice,BoatLength);
+                        double BoatLength = double.Parse(test.BoattypeLength());      //inmatning båtlängd // kan inte använda console write line eftersom det är void
+                        Boat FullBoat = new Boat(Boatchoice,BoatLength);      // instans av ny objekt( med intagen längd av båtlängd och båtkategorier 
                         member.sendToBoatList(FullBoat);
                         break;
                     case 5:
                         test.ShowBoat(member);
-                        
-                        break;
+                        selectBoat(member);
+                          break;
 
                     default: break;
 
-                    
-
                 }
             }
+
+        public void selectBoat(Member member)
+        {
+            Boat boaten;
+            IReadOnlyCollection<Member> newlist = MemberDAL.getMemberList(); ;
+            ConsoleView test2 = new ConsoleView();
+            //test2.bild();
+            int choices = int.Parse(Console.ReadLine());
+            if (choices == 0)
+            {
+                return;
+            }
+            choices--;
+             
+            test2.boatChoices();
+            int boatchoice = int.Parse(Console.ReadLine());
+            boaten = member.BoatList.ElementAt(choices);
+            switch(boatchoice)
+            {
+                case 1:
+                    member.RemoveBoatList(choices); 
+                    break;
+
+                case 2:
+                    test2.ViewBoattype();
+                    choices = int.Parse(Console.ReadLine()); 
+                test2.Boatchanges();
+                    double newLength = double.Parse(Console.ReadLine());         
+                    //Boat FullBoat = new Boat(choices, newLength);
+                    boaten.GetLength = newLength;                                  // egenskap == nya värdet
+                    boaten.GetCategory = (Model.Boat.BoatCategory)choices;    // kan inte skicka in i egenskaper eftersom de inte har parameteer
+                                                                          // hämtade objektet från båten
+                                                                              // ändra värden via parse
+                    break;
+
+            }
+
+        }
             
 
-            
-
-
-           
         }
 
     }

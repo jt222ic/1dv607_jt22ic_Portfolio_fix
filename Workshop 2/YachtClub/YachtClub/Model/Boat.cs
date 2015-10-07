@@ -13,8 +13,7 @@ namespace YachtClub.Model
         private double _Length;
         private BoatCategory _Boattype;
         
-        private int BoatID;
-        private BoatCategory Categories;
+       
 
 
         public double GetLength

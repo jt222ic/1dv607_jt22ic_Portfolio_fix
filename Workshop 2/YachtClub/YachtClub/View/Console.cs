@@ -10,25 +10,21 @@ namespace YachtClub.View
 {
     class ConsoleView
     {
-
-        
         public void DisplayInfo()
         {
            System.Console.Clear();
            System.Console.WriteLine("======================================================");
            System.Console.WriteLine("        ****Welcome to YachtClub****                      ");
            System.Console.WriteLine("==========================================");
-           System.Console.WriteLine("1.add a Member");                            // info Firstname, Lastname, ID, Boat 
+           System.Console.WriteLine("1.add a Member");                            
            System.Console.WriteLine("==========================================");
             System.Console.WriteLine("2. Edit");
             System.Console.WriteLine("==========================================");
-           System.Console.WriteLine("3.Compact List(name,memberId, number of boats");// view info
-           System.Console.WriteLine("4.Verbose List(name, personal number, memberId  and boatsinfo");// view info
+           System.Console.WriteLine("3.Compact List(name,memberId, number of boats");
+           System.Console.WriteLine("4.Verbose List(name, personal number, memberId  and boatsinfo");
            System.Console.WriteLine("==========================================");
            System.Console.WriteLine("0. press to save or quit");
-            //REEEDLAJN
-            //CONSROSRLCLEARRRUU
-
+   
         }
 
         public int ListEditChoices()
@@ -45,12 +41,6 @@ namespace YachtClub.View
             return int.Parse(Console.ReadLine());
           
         }
-
-        //public int GetMember()
-        //{
-        //    return i;   
-        //}
-
 
      
         // Compact Lista //
@@ -78,7 +68,7 @@ namespace YachtClub.View
 
             foreach(Model.Member member in list)
             {
-                 System.Console.WriteLine("name :{0},Security Number :{1}, MemberID :{2},Boats :{3}, Nummer i listan : {4} ", 
+                System.Console.WriteLine("name :{0},Security Number :{1}, MemberID :{2},Boats :{3}, Nummer i listan : {4} ", 
                     member.GetName, 
                     member.GetSecurityNumber, 
                     member.GetMemberID, 
@@ -86,51 +76,39 @@ namespace YachtClub.View
                     i++);
                     // i++;
             
-
-                
-
             }
 
         }
         public void ShowBoat(Member member)
         {
+          int i = 1;
             Console.WriteLine("Detaljer");
-            foreach (Boat b in member.BoatList)
+            foreach (Boat boat in member.BoatList)
             {
-                System.Console.WriteLine("båt kategori : {0}\n båtlängd :{1}", b.GetCategory, b.GetLength);
+                System.Console.WriteLine("båt kategori : {0}   båtlängd :{1}   ID : {2}", boat.GetCategory, boat.GetLength, i++); 
             }
+            System.Console.Write("Chooice one boat ID to remove or update   :");
         }
 
+        public void boatChoices()
+        {
+            
+            System.Console.WriteLine("======================================================");
+            System.Console.WriteLine("1. remove Boat from Medlem");
+            System.Console.WriteLine("2. To Update Boat from Medlem");
+            System.Console.WriteLine("0.  To Quit");
+            System.Console.WriteLine("======================================================");
+         
+        }
+
+        public void Boatchanges()
+        {
+            System.Console.WriteLine("Pick the new Length   :");
+            
+
            
-            
-            ////Välja en specifik medlem ur listan med hjälp av siffrorna iu listan
-            //int choice = int.Parse(Console.ReadLine());  ok
-            //Member chosenMember = list.ElementAt(choice); ok
+        }
 
-            ////ändra på vald medlem
-            //chosenMember.GetName = "nyanamnethär"; ok ok
-
-            ////Välja en båt
-            //Boat chosenBoat = chosenMember.BoatList.ElementAt(choice); ok 
-            //chosenBoat.GetLength = 22; 
-
-            ////skriva ut båttyperna till användaren
-            ////var BoatTypes = Enum.GetValues(typeof(Boat.type)).Cast<Boat.type>(); ok?
-            ////int i = 1;
-            ////foreach (Enum Type in BoatTypes)
-            ////{
-            ////    System.Console.WriteLine(String.Format("{0}: {1}", i, Type)); tillämpar det
-            ////    i++;
-            ////}
-
-            ////public Boat(int i, double length)
-            ////{
-            ////    BoatType = (type)i;
-            ////    Length = length;
-            ////}
-            
-            
-        
         public void ShowMembers(Member member)
         {
            
@@ -144,17 +122,10 @@ namespace YachtClub.View
             System.Console.WriteLine("--------------------------------------------------------------------------------");
             System.Console.WriteLine("Option to choose:\n 1-Rename name\n 2- Delete member \n 3- Change SecurityNumber \n 4- Add Boat \n 5- View the boat \n 0- Exit");
            
-
-            
-                             //return int.Parse(System.Console.ReadLine());
+                  //return int.Parse(System.Console.ReadLine());
         }
 
       
-
-        
-
-      
-
         public string OnRegister()
         {
             Console.WriteLine("Inmatning name,MemberID, Security");
@@ -201,6 +172,7 @@ namespace YachtClub.View
             foreach (Enum BoatCategory in BoatTypes)
             {
                 System.Console.WriteLine("{0}: {1}", i, BoatCategory);
+                System.Console.WriteLine("-----------");
                 i++;
             }
         }

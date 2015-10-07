@@ -21,7 +21,7 @@ namespace YachtClub.Model
         // List<Boat> list = new List<Boat>();                                // skapar en lista av båt klassen senare
 
 
-        public List<Boat> BoatList
+        public List<Boat> BoatList               //hahah glömde att jag hade en båtlista
         {
             get { return Boatlist; }
         }
@@ -56,7 +56,6 @@ namespace YachtClub.Model
 
                 Name = value;
             }
-
         }
 
         public int GetMemberID
@@ -85,36 +84,18 @@ namespace YachtClub.Model
             Name = name;
             MemberId = memberId;
             SecurityNumber = securityname;
-
-
-            sendToMemberList(this);                // hämta hela objektet 
-            
+              sendToMemberList(this);        // hämta ut hela objekt       
         }
-
-       
 
         public void sendToBoatList(Boat boat)
         {
             Boatlist.Add(boat);
         }
-        public void RemoveBoatList(Boat boat)
+        public void RemoveBoatList(int boat)
         {
-            Boatlist.Remove(boat);
+            Boatlist.RemoveAt(boat);
         }
 
-        //public void UpdateBoatList(double length, Boat.BoatCategory categories, int boatid)
-        //{
-        //    Boat B_TobeAdded = new Boat(length, categories, boatid);
-        //    B_TobeAdded.Add(Boatlist);                                          // name B with underline so i dont mix up with tobeadded from Member class
-        //}
-        
-
-        //public void sendToMemberList(MemberList medlemsinfo)
-        //{
-        //    medlemsinfo.Addmember(new Member(Name, MemberId, SecurityNumber));
-             
-        //}
-  
         public void sendToMemberList(Member member)
         {
             MemberDAL.AddMemberToList(member);

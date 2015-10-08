@@ -65,6 +65,7 @@ namespace YachtClub.Model.DAL
             catch (Exception e)
             {
                 Console.Write("Error occurred while deserializing {0}", _FILE_PATH);
+                loadedList = new List<Member>();
             }
             file.Close();
             // fileStream.Close();

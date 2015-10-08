@@ -60,7 +60,7 @@ namespace YachtClub.Controller
                 catch (Exception e)
                 {
                     Console.WriteLine("nåt gick fel");
-                    
+                    throw e;
                 }
 
             }

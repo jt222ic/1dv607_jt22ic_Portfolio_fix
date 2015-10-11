@@ -1,0 +1,11 @@
+Fixed Dead codes;
+Put on right category 
+No memberkey ID yet
+lessen gap between spaces
+Rename variable named adapted to other developer
+
+
+wont fix:
+MEmber key id
+the console way
+becuz i rather have a code that works than thinking about user interface.

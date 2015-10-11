@@ -105,8 +105,6 @@ namespace YachtClub.View
         {
             System.Console.WriteLine("Pick the new Length   :");
             
-
-           
         }
 
         public void ShowMembers(Member member)
@@ -148,8 +146,7 @@ namespace YachtClub.View
         public void ChooseID()
             {
                 Console.Write("Choose Number in List   :");
-             
-             
+          
             }
         public string Rename()
         {
@@ -192,10 +189,7 @@ namespace YachtClub.View
 
         //public int i { get; set; }
 
-        internal void ShowMember(Member chosenMember)
-        {
-            throw new NotImplementedException();
-        }
+
     }
     }
 

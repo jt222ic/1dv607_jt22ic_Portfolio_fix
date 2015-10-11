@@ -73,10 +73,7 @@ namespace YachtClub.Model
             // jonas säger att jag ska kalla till båtklasssen ifrån medlemmen
             // controller för att kalla på objekt skapade, med GetName, GetName ID, Security number) med instans av ny objekt klass
 
-        internal void Add(List<Boat> Boatlist)
-        {
-            throw new NotImplementedException();
-        }
+
     }
   
 }

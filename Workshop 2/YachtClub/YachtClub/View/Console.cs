@@ -16,7 +16,7 @@ namespace YachtClub.View
             System.Console.WriteLine("======================================================");
             System.Console.WriteLine("        ****Welcome to YachtClub****                      ");
             System.Console.WriteLine("==========================================");
-            System.Console.WriteLine("1.add a Member");
+            System.Console.WriteLine("1.add a member");
             System.Console.WriteLine("==========================================");
             System.Console.WriteLine("2. Edit");
             System.Console.WriteLine("==========================================");
@@ -31,7 +31,7 @@ namespace YachtClub.View
         {
             System.Console.Clear();
             System.Console.WriteLine("======================================================");
-            System.Console.WriteLine("1.Edit Member");
+            System.Console.WriteLine("1.Edit member");
             System.Console.WriteLine("0.to return to Main Menu");
             System.Console.WriteLine("======================================================");
 

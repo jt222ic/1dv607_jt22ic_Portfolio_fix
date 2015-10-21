@@ -14,6 +14,17 @@ namespace YachtClub.Controller
     {
         private Member member;
 
+        internal YachtClub.Model.Member dependencies
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public void MainMenu()
         {
             View.ConsoleView c = new View.ConsoleView();
@@ -93,7 +104,6 @@ namespace YachtClub.Controller
 
                             break;
 
-                        default: break;
 
                     }
                 }

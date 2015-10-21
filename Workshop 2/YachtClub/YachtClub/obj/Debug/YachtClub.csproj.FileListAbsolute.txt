@@ -16,3 +16,9 @@ C:\Users\jt222ic\Desktop\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub
 C:\Users\jt222ic\Desktop\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe
 C:\Users\jt222ic\Desktop\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.pdb
 C:\Users\jt222ic\Desktop\1dv607-jt222ic-Portfolio\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.csprojResolveAssemblyReference.cache
+C:\Users\jt222ic\Desktop\1dv607_jt22ic_Portfolio_fix\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe.config
+C:\Users\jt222ic\Desktop\1dv607_jt22ic_Portfolio_fix\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.exe
+C:\Users\jt222ic\Desktop\1dv607_jt22ic_Portfolio_fix\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.pdb
+C:\Users\jt222ic\Desktop\1dv607_jt22ic_Portfolio_fix\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.exe
+C:\Users\jt222ic\Desktop\1dv607_jt22ic_Portfolio_fix\Workshop 2\YachtClub\YachtClub\bin\Debug\YachtClub.pdb
+C:\Users\jt222ic\Desktop\1dv607_jt22ic_Portfolio_fix\Workshop 2\YachtClub\YachtClub\obj\Debug\YachtClub.csprojResolveAssemblyReference.cache

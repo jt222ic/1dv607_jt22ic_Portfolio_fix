@@ -14,7 +14,7 @@ namespace YachtClub.Model.DAL
         private static readonly string _FILE_PATH = "Listan.bin";      //refrens https://www.youtube.com/watch?v=URw86vBWeGE
 
         private static List<Member> memberList = new List<Member>();
-        
+
 
         public static void Initialize()
         {
@@ -24,13 +24,13 @@ namespace YachtClub.Model.DAL
         public static void removeMember(int choice)
         {
             memberList.RemoveAt(choice);
-          
+
         }
 
         public static void SaveToFile()                                                 // referens för användning av Serialized 
         {
             using (FileStream fileStream = new FileStream(_FILE_PATH, FileMode.OpenOrCreate))             // object som ska sparas i fil
-            { 
+            {
                 BinaryFormatter binFormatter = new BinaryFormatter();
                 binFormatter.Serialize(fileStream, memberList);
             }
@@ -49,7 +49,7 @@ namespace YachtClub.Model.DAL
 
         }
 
-     
+
         public static List<Member> LoadFromFile()                                                    // objekt som ska laddas från 
         {
             FileStream fileStream = null;
@@ -68,9 +68,9 @@ namespace YachtClub.Model.DAL
                 loadedList = new List<Member>();
             }
             file.Close();
-            // fileStream.Close();
+
             return loadedList;
-            
+
         }
     }
 }

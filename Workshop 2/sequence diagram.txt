@@ -1,0 +1,17 @@
+Controller->Member: call Member()
+Controller->Member: UpdateInfo()
+Controller->Member: remove()
+Controller->Member: CreateMember(Name,Boattype,Boat )
+
+
+Member->Boat: info()
+
+Boat->+BoatList: Gather()
+
+BoatList-->-Boat: info()
+
+
+
+Member->-Controller: Response()
+
+Boat->-Member: Registered()

@@ -8,4 +8,4 @@ Rename variable named adapted to other developer
 wont fix:
 MEmber key id
 the console way
-becuz i rather have a code that works than thinking about user interface.
+becuz i rather have asda code that works than thinking about user interface.

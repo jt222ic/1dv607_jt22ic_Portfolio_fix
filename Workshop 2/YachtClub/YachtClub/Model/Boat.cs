@@ -12,21 +12,24 @@ namespace YachtClub.Model
 
         private double _Length;
         private BoatCategory _Boattype;
-        
-       
+
+
 
 
         public double GetLength
         {
-            get {
-                return _Length; 
+            get
+            {
+                return _Length;
             }
 
-            set {if(_Length <=0 || _Length >= 500)
+            set
             {
-                throw new ArgumentException("unnessary length of a boat");
-            }
-                _Length = value; 
+                if (_Length <= 0 || _Length >= 500)
+                {
+                    throw new ArgumentException("unnessary length of a boat");
+                }
+                _Length = value;
             }
         }
 
@@ -40,9 +43,9 @@ namespace YachtClub.Model
         }
         public BoatCategory GetCategory
         {
-            get 
+            get
             {
-                return _Boattype; 
+                return _Boattype;
             }
             set
             {
@@ -58,22 +61,23 @@ namespace YachtClub.Model
             }
         }
 
-     
-        public Boat(int i,double length)
-        {   _Length = length;
+
+        public Boat(int i, double length)
+        {
+            _Length = length;
             _Boattype = (BoatCategory)i;
-             
+
         }
 
-            // enumerable för båt kategorier
-            // Kapsla in alla info
+        // enumerable för båt kategorier
+        // Kapsla in alla info
         // Boatname,BoatCategory, BoatLength
-            // get: set;
-            // konstruktor 
-            // jonas säger att jag ska kalla till båtklasssen ifrån medlemmen
-            // controller för att kalla på objekt skapade, med GetName, GetName ID, Security number) med instans av ny objekt klass
+        // get: set;
+        // konstruktor 
+        // jonas säger att jag ska kalla till båtklasssen ifrån medlemmen
+        // controller för att kalla på objekt skapade, med GetName, GetName ID, Security number) med instans av ny objekt klass
 
 
     }
-  
+
 }
